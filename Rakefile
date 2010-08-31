@@ -19,8 +19,8 @@ task :install do
       FileUtils.cp_r Dir["#{s}/#{f}/*"], "#{DOTVIM}/#{f}"
     end
   end
-  FileUtils.cp "dotvimrc", ".vimrc"
-  FileUtils.cp "dotgvimrc", ".gvimrc"
+  FileUtils.cp "dotvimrc", "#{ENV['HOME']}/.vimrc"
+  FileUtils.cp "dotgvimrc", "#{ENV['HOME']}/.gvimrc"
 end
 
 task :default => :preinstall
