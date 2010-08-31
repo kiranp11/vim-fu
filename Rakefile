@@ -23,6 +23,7 @@ task :install do
   FileUtils.cp "dotgvimrc", ".gvimrc"
 end
 
+task :default => :preinstall
 desc "Remove everything in ~/.vim"
 task :uninstall do
   FileUtils.rm_rf DOTVIM
