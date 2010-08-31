@@ -16,7 +16,7 @@ task :install do
 
   SCRIPTS.each do |s|
     FOLDERS.each do |f|
-      FileUtils.cp Dir["#{s}/#{f}/*"], "#{DOTVIM}/#{f}"
+      FileUtils.cp_r Dir["#{s}/#{f}/*"], "#{DOTVIM}/#{f}"
     end
   end
   FileUtils.cp "dotvimrc", ".vimrc"
