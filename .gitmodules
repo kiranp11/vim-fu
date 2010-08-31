@@ -28,3 +28,6 @@
 [submodule "tcomment_vim"]
 	path = tcomment_vim
 	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "vim-bufonly"]
+	path = vim-bufonly
+	url = git://github.com/duff/vim-bufonly.git
