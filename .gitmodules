@@ -31,3 +31,6 @@
 [submodule "vim-bufonly"]
 	path = vim-bufonly
 	url = git://github.com/duff/vim-bufonly.git
+[submodule "vim-endwise"]
+	path = vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
