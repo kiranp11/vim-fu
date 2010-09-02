@@ -79,8 +79,8 @@ colorscheme ir_dark
 set showcmd
 set ruler " Show ruler
 "set ch=2 " Make command line two lines high
- 
- 
+set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%d/%m/%Y-%H:%M\")}\ %{fugitive#statusline()}%=\ %l:%c%V\ %L\ %P
+
 " Line Wrapping ***************************************************************
 set nowrap
 set linebreak " Wrap at word
@@ -205,8 +205,6 @@ nmap <silent> <leader>b :FufBuffer<CR>
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
  
- 
- 
 " -----------------------------------------------------------------------------
 " | OS Specific |
 " | (GUI stuff goes in gvimrc) |
@@ -222,14 +220,11 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
   ""
 "endif
  
- 
- 
 " -----------------------------------------------------------------------------
 " | Startup |
 " -----------------------------------------------------------------------------
 " Open NERDTree on start
 "autocmd VimEnter * exe 'NERDTree' | wincmd l 
-
 
 filetype on  " Automatically detect file types.
 set nocompatible  " We don't want vi compatibility.
