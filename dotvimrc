@@ -3,6 +3,8 @@
 " | (see gvimrc for gui vim settings) |
 " -----------------------------------------------------------------------------
  
+let mapleader = ","
+
 set nocompatible
  
 " Tabs ************************************************************************
@@ -191,8 +193,8 @@ let NERDTreeMouseMode=1
  
  
 " fuzzyfinder_textmate ********************************************************
-map ,f :FuzzyFinderTextMate<CR>
-map ,b :FuzzyFinderBuffer<CR>
+nmap <silent> <leader>f :FufFile<CR>
+nmap <silent> <leader>b :FufBuffer<CR>
 "let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
  
 " autocomplpop ***************************************************************
@@ -255,4 +257,3 @@ syntax enable
 :filetype plugin on
 set ofu=syntaxcomplete#Complete
 
-let mapleader = ","
