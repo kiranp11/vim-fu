@@ -2,7 +2,7 @@ require 'rake'
 
 SCRIPTS_WITH_RAKE = %w(Command-T)
 FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
-SCRIPTS = %w(personal tabular nerdtree vim-cucumber vim-rails fugitive vim-haml vim-scratch ack.vim snipmate.vim project vim-spec tcomment_vim vim-bufonly vim-endwise minibufexpl vim-surround yankring) + SCRIPTS_WITH_RAKE
+SCRIPTS = %w(personal tabular nerdtree vim-cucumber vim-rails fugitive vim-haml vim-scratch ack.vim snipmate.vim project vim-spec tcomment_vim vim-bufonly vim-endwise vim-surround yankring vim-fuzzyfinder) + SCRIPTS_WITH_RAKE
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Pull down submodules"
