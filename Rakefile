@@ -1,7 +1,8 @@
 require 'rake'
 
-FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after)
-SCRIPTS = %w(personal tabular nerdtree vim-cucumber vim-rails fugitive vim-haml vim-scratch ack.vim snipmate.vim project vim-spec tcomment_vim vim-bufonly vim-endwise minibufexpl vim-surround yankring)
+SCRIPTS_WITH_RAKE = %w(Command-T)
+FOLDERS = %w(colors ftdetect ftplugin indent syntax doc plugin autoload snippets macros after ruby)
+SCRIPTS = %w(personal tabular nerdtree vim-cucumber vim-rails fugitive vim-haml vim-scratch ack.vim snipmate.vim project vim-spec tcomment_vim vim-bufonly vim-endwise minibufexpl vim-surround yankring) + SCRIPTS_WITH_RAKE
 DOTVIM = "#{ENV['HOME']}/.vim"
 
 desc "Pull down submodules"
@@ -14,6 +15,11 @@ desc "Install the files into ~/.vim"
 task :install do
   FileUtils.mkdir_p FOLDERS.map{|f| "#{DOTVIM}/#{f}" }
 
+  SCRIPTS_WITH_RAKE.each do |f|
+    Dir.chdir f
+    system 'rake make'
+    Dir.chdir '..'
+  end
   SCRIPTS.each do |s|
     FOLDERS.each do |f|
       FileUtils.cp_r Dir["#{s}/#{f}/*"], "#{DOTVIM}/#{f}"
