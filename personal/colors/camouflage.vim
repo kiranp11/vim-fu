@@ -11,9 +11,9 @@ let colors_name = "camouflage"
 if version >= 700
   hi CursorLine     guibg=#191312
   hi CursorColumn   guibg=#070100
-  hi MatchParen     guibg=#070100 gui=bold
+  hi MatchParen     guibg=#251F1E gui=bold
   hi Pmenu          guifg=#00D2D2 guibg=#323232
-  hi PmenuSel       guifg=#00D2D2 guibg=#FFCA39
+  hi PmenuSel       guifg=#00D2D2 guibg=#C38E1B
 endif
 
 " Background and menu colors
