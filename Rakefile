@@ -11,9 +11,25 @@ task :preinstall do
   exec('git submodule update')
 end
 
+desc "Get latest on all the submodules"
+task :update do
+  SCRIPTS.each do |f|
+    if File.directory? "#{f}/.git"
+      Dir.chdir f
+      system "git pull origin master"
+      Dir.chdir '..'
+    elsif File.directory? "#{f}/.hg"
+      system "hg pull #{f}"
+    else
+      puts "didn't find #{f}"
+    end
+  end
+end
+
 desc "Install the files into ~/.vim"
 task :install do
   FileUtils.mkdir_p FOLDERS.map{|f| "#{DOTVIM}/#{f}" }
+  FileUtils.mkdir_p "#{DOTVIM}/tmp"
 
   SCRIPTS_WITH_RAKE.each do |f|
     Dir.chdir f
