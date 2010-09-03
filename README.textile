@@ -8,4 +8,7 @@ And if you need to:
 @rake uninstall@ Deletes ~/.vim
 @rake reinstall@ Uninstall, install.
 
+Also, if you want to update the submodules:
+@rake update@ Does a git pull on each of them. You'll need to do a commit yourself.
+
 If you want to add your own folders, plugins, or what have you, feel free! Just put whatever files you want in the @personal@ folder. Check out the @Rakefile@ and go for it.
