@@ -14,7 +14,25 @@ nmap <leader>w :w<CR>
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
- 
+
+" Files, backups and undo******************************************************
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
+
+"Persistent undo
+try
+  if MySys() == "windows"
+    set undodir=C:\Windows\Temp
+  else
+    set undodir=~expand('$HOME/.vim/tmp')
+  endif
+
+  set undofile
+catch
+endtry
+
 function! Tabstyle_tabs()
   " Using 4 column tabs
   set softtabstop=4
