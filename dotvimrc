@@ -4,6 +4,8 @@
 " -----------------------------------------------------------------------------
  
 let mapleader = ","
+set wildmenu
+set wildmode=list:longest,full
 
 set nocompatible
  
