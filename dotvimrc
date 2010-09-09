@@ -193,6 +193,9 @@ let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 nmap <silent> <unique> <leader>s :.Rake<CR>
 nmap <silent> <unique> <leader>r :Rake -<CR>
 
+" yankring*********************************************************************
+let g:yankring_history_dir = expand('$HOME/.vim/tmp')
+
 " autocomplpop ***************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
