@@ -2,7 +2,7 @@
 " | VIM Settings |
 " | (see gvimrc for gui vim settings) |
 " -----------------------------------------------------------------------------
- 
+
 let mapleader = ","
 set wildmenu
 set wildmode=list:longest,full
@@ -45,7 +45,7 @@ function! Tabstyle_tabs()
   autocmd User Rails set tabstop=4
   autocmd User Rails set noexpandtab
 endfunction
- 
+
 function! Tabstyle_spaces()
   " Use 2 spaces
   set softtabstop=2
@@ -53,14 +53,13 @@ function! Tabstyle_spaces()
   set tabstop=2
   set expandtab
 endfunction
- 
+
 if hostname() == "Laptop.local"
   call Tabstyle_tabs()
 else
   call Tabstyle_spaces()
 endif
- 
- 
+
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent  (local to buffer)
@@ -69,8 +68,7 @@ set si " smartindent  (local to buffer)
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
- 
- 
+
 " Windows *********************************************************************
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
@@ -78,27 +76,22 @@ set splitbelow splitright
 "Vertical split then hop to new buffer
 :noremap ,v :vsp^M^W^W<cr>
 :noremap ,h :split^M^W^W<cr>
- 
- 
+
 " Cursor highlights ***********************************************************
 set cursorline
 "set cursorcolumn
- 
- 
+
 " Searching *******************************************************************
 set hlsearch " highlight search
 set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
- 
- 
+
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
-set background=dark
 syntax on " syntax highlighting
-colorscheme ir_dark
- 
- 
+colorscheme camouflage
+
 " Status Line *****************************************************************
 set showcmd
 set ruler " Show ruler
@@ -109,64 +102,56 @@ set laststatus=2
 " Line Wrapping ***************************************************************
 set nowrap
 set linebreak " Wrap at word
- 
- 
+
 " Mappings ********************************************************************
 " Professor VIM says '87% of users prefer jj over esc', jj abrams strongly disagrees
 imap jj <Esc>
 imap uu _
 imap hh =>
 imap aa @
- 
- 
+
 " Directories *****************************************************************
 " Setup backup location and enable
 "set backupdir=~/backup/vim
 "set backup
- 
+
 " Set Swap directory
 "set directory=~/backup/vim/swap
- 
+
 " Sets path to directory buffer was loaded from
 "autocmd BufEnter * lcd %:p:h
- 
- 
+
 " File Stuff ******************************************************************
 filetype plugin indent on
 " To show current filetype use: set filetype
- 
+
 autocmd FileType html :set filetype=xhtml " we couldn't care less about html
- 
- 
+
 " Inser New Line **************************************************************
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 map <Enter> o<ESC>
 set fo-=r " do not insert a comment leader after an enter, (no work, fix!!)
- 
- 
+
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
- 
- 
+
 " Misc ************************************************************************
 set backspace=indent,eol,start
 set number " Show line numbers
 set matchpairs+=<:>
 set vb t_vb= " Turn off the bell, this could be more annoying, but I'm not sure how
- 
+
 " Set list Chars - for showing characters that are not
 " normally displayed i.e. whitespace, tabs, EOL
 "set listchars=trail:.,tab:>-,eol:$
 "set nolist
- 
- 
+
 " Mouse ***********************************************************************
 "set mouse=a " Enable the mouse
 "behave xterm
 "set selectmode=mouse
- 
- 
+
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
 map <up> gk
@@ -176,13 +161,11 @@ map <down> gj
 map j gj
 imap <down> <C-o>gj
 map E ge
- 
- 
+
 " Ruby stuff ******************************************************************
 "compiler ruby " Enable compiler support for ruby
 "map <F5> :!ruby %<CR>
- 
- 
+
 " Omni Completion *************************************************************
 autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -192,27 +175,25 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " may require ruby compiled in
- 
- 
- 
+
 " -----------------------------------------------------------------------------
 " | Plugins |
 " -----------------------------------------------------------------------------
- 
+
 " NERDTree ********************************************************************
 :noremap ,n :NERDTreeToggle<CR>
- 
+
 " User instead of Netrw when doing an edit /foobar
 let NERDTreeHijackNetrw=1
- 
+
 " Single click for everything
 let NERDTreeMouseMode=1
- 
+
 " fuzzyfinder_textmate ********************************************************
 nmap <silent> <leader>f :FufFile<CR>
 nmap <silent> <leader>b :FufBuffer<CR>
 let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
- 
+
 " Rails.vim shortcuts ********************************************************
 nmap <silent> <unique> <leader>s :.Rake<CR>
 nmap <silent> <unique> <leader>r :Rake -<CR>
@@ -227,22 +208,22 @@ let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 "set complete=.
 let g:AutoComplPop_IgnoreCaseOption = 0
 let g:AutoComplPop_BehaviorKeywordLength = 2
- 
+
 " -----------------------------------------------------------------------------
 " | OS Specific |
 " | (GUI stuff goes in gvimrc) |
 " -----------------------------------------------------------------------------
- 
+
 " Mac *************************************************************************
 "if has("mac")
   ""
 "endif
- 
+
 " Windows *********************************************************************
 "if has("gui_win32")
   ""
 "endif
- 
+
 " -----------------------------------------------------------------------------
 " | Startup |
 " -----------------------------------------------------------------------------
@@ -251,10 +232,10 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 
 filetype on  " Automatically detect file types.
 set nocompatible  " We don't want vi compatibility.
- 
+
 " Add recently accessed projects menu (project plugin)
 set viminfo^=!
-  
+
 " Minibuffer Explorer Settings
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1
@@ -262,14 +243,14 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 set hid
- 
+
 " alt+n or alt+p to navigate between entries in QuickFix
 map <silent> <m-p> :cp <cr>
 map <silent> <m-n> :cn <cr>
- 
+
 " Change which file opens after executing :Rails command
 let g:rails_default_file='config/database.yml'
-  
+
 syntax enable
 
 :filetype plugin on
