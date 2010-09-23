@@ -43,3 +43,6 @@
 [submodule "supertab"]
 	path = supertab
 	url = git://github.com/ervandew/supertab.git
+[submodule "rvm.vim"]
+	path = rvm.vim
+	url = git://github.com/csexton/rvm.vim.git
