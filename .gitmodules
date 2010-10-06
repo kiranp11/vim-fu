@@ -46,3 +46,6 @@
 [submodule "rvm.vim"]
 	path = rvm.vim
 	url = git://github.com/csexton/rvm.vim.git
+[submodule "vim-unimpaired"]
+	path = vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
