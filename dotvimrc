@@ -196,6 +196,7 @@ let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
 
 " Rails.vim shortcuts ********************************************************
 nmap <silent> <unique> <leader>s :.Rake<CR>
+nmap <silent> <unique> <leader>S :Rake<CR>
 nmap <silent> <unique> <leader>r :Rake -<CR>
 
 " yankring*********************************************************************
