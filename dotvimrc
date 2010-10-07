@@ -11,7 +11,9 @@ set autowriteall
 set nocompatible
 
 " Shortcuts********************************************************************
-nmap <leader>w :w<CR>
+nmap <silent> <unique> <leader>w :w<CR>
+nmap <silent> <unique> <leader>x "*x
+nmap <silent> <unique> <leader>p "*p
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
@@ -64,7 +66,6 @@ endif
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent  (local to buffer)
  
- 
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
@@ -74,8 +75,8 @@ set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
  
 "Vertical split then hop to new buffer
-:noremap ,v :vsp^M^W^W<cr>
-:noremap ,h :split^M^W^W<cr>
+:noremap <leader>v :vsp^M^W^W<cr>
+:noremap <leader>h :split^M^W^W<cr>
 
 " Cursor highlights ***********************************************************
 set cursorline
