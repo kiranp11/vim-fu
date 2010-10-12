@@ -14,6 +14,7 @@ set nocompatible
 nmap <silent> <unique> <leader>w :w<CR>
 nmap <silent> <unique> <leader>x "*x
 nmap <silent> <unique> <leader>p "*p
+nmap <silent> <unique> :A<CR>
 nmap <silent> <unique> <Space> <PageDown>
 nmap <silent> <unique> <S-Space> <PageUp>
 
@@ -184,7 +185,7 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete " may require rub
 " -----------------------------------------------------------------------------
 
 " NERDTree ********************************************************************
-:noremap ,n :NERDTreeToggle<CR>
+:noremap <leader>n :NERDTreeToggle<CR>
 
 " User instead of Netrw when doing an edit /foobar
 let NERDTreeHijackNetrw=1
