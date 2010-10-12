@@ -49,3 +49,6 @@
 [submodule "vim-unimpaired"]
 	path = vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim-rake"]
+	path = vim-rake
+	url = git://github.com/tpope/vim-rake.git
