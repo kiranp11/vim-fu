@@ -14,7 +14,7 @@ set nocompatible
 nmap <silent> <unique> <leader>w :w<CR>
 nmap <silent> <unique> <leader>x "*x
 nmap <silent> <unique> <leader>p "*p
-nmap <silent> <unique> :A<CR>
+nmap <silent> <unique> <C-S-Down> :A<CR>
 nmap <silent> <unique> <Space> <PageDown>
 nmap <silent> <unique> <S-Space> <PageUp>
 
