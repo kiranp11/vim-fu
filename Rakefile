@@ -13,6 +13,7 @@ end
 
 desc "Get latest on all the submodules"
 task :update do
+  scripts_without_version_control = []
   SCRIPTS.each do |f|
     if File.directory? "#{f}/.git"
       Dir.chdir f
@@ -21,9 +22,10 @@ task :update do
     elsif File.directory? "#{f}/.hg"
       system "hg pull #{f}"
     else
-      puts "didn't find #{f}"
+      scripts_without_version_control << f
     end
   end
+  puts "Scripts without version control: #{(scripts_without_version_control).join(', ')}"
 end
 
 desc "Install the files into ~/.vim"
