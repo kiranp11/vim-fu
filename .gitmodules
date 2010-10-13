@@ -52,3 +52,6 @@
 [submodule "vim-rake"]
 	path = vim-rake
 	url = git://github.com/tpope/vim-rake.git
+[submodule "vim-yankring"]
+	path = vim-yankring
+	url = git://github.com/chrismetcalf/vim-yankring.git
