@@ -25,7 +25,7 @@ task :update do
       scripts_without_version_control << f
     end
   end
-  puts "Scripts without version control: #{(scripts_without_version_control).join(', ')}"
+  puts "Scripts without version control: #{scripts_without_version_control.join(', ')}"
 end
 
 desc "Install the files into ~/.vim"
