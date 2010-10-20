@@ -17,6 +17,8 @@ nmap <silent> <unique> <leader>p "*p
 nmap <silent> <unique> <C-S-Down> :A<CR>
 nmap <silent> <unique> <Space> <PageDown>
 nmap <silent> <unique> <S-Space> <PageUp>
+nmap <silent> <unique> <C-S-Left> <C-o>
+nmap <silent> <unique> <C-S-Right> <C-i>
 
 " Tabs ************************************************************************
 "set sta " a <Tab> in an indent inserts 'shiftwidth' spaces
