@@ -1,6 +1,6 @@
 " Description:	html indenter
 " Author:	Johannes Zellner <johannes@zellner.org>
-" Last Change:	Tue, 27 Apr 2004 10:28:39 CEST
+" Last Change:	Mo, 05 Jun 2006 22:32:41 CEST
 " 		Restoring 'cpo' and 'ic' added by Bram 2006 May 5
 " Globals:	g:html_indent_tags	   -- indenting tags
 "		g:html_indent_strict       -- inhibit 'O O' elements
@@ -100,12 +100,12 @@ call <SID>HtmlIndentPush('var')
 
 
 " [-- <ELEMENT ? O O ...> --]
-if !exists('g:html_indent_strict')
+" if !exists('g:html_indent_strict')
     call <SID>HtmlIndentPush('body')
     call <SID>HtmlIndentPush('head')
     call <SID>HtmlIndentPush('html')
     call <SID>HtmlIndentPush('tbody')
-endif
+" endif
 
 
 " [-- <ELEMENT ? O - ...> --]
@@ -170,17 +170,6 @@ fun! <SID>HtmlIndentSum(lnum, style)
     return 0
 endfun
 
-fun! s:getSyntaxName(lnum, re)
-	return synIDattr(synID(a:lnum, match(getline(a:lnum), a:re) + 1, 0), "name")
-endfun
-
-fun! s:isSyntaxElem(lnum, re, elem)
-	if getline(a:lnum) =~ a:re && s:getSyntaxName(a:lnum, a:re) == a:elem
-		return 1
-	endif
-	return 0
-endfun
-
 fun! HtmlIndentGet(lnum)
     " Find a non-empty line above the current line.
     let lnum = prevnonblank(a:lnum - 1)
@@ -206,50 +195,25 @@ fun! HtmlIndentGet(lnum)
 
     " [-- special handling for <javascript>: use cindent --]
     let js = '<script.*type\s*=\s*.*java'
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " by Tye Zdrojewski <zdro@yahoo.com>, 05 Jun 2006
+    " ZDR: This needs to be an AND (we are 'after the start of the pair' AND
+    "      we are 'before the end of the pair').  Otherwise, indentation
+    "      before the start of the script block will be affected; the end of
+    "      the pair will still match if we are before the beginning of the
+    "      pair.
+    "
     if   0 < searchpair(js, '', '</script>', 'nWb')
-    \ || 0 < searchpair(js, '', '</script>', 'nW')
+    \ && 0 < searchpair(js, '', '</script>', 'nW')
 	" we're inside javascript
-	if getline(lnum) !~ js && getline(a:lnum) !~ js
+	if getline(lnum) !~ js && getline(a:lnum) != '</script>'
 	    if restore_ic == 0
 	      setlocal noic
 	    endif
-		" Open and close bracket:
-		if s:isSyntaxElem(lnum, '{', "javaScriptBraces") && s:isSyntaxElem(a:lnum, '}', "javaScriptBraces")
-			return indent(lnum)
-		elseif s:isSyntaxElem(lnum, '{', "javaScriptBraces")
-			return indent(lnum) + &sw
-		elseif s:isSyntaxElem(a:lnum, '}', "javaScriptBraces")
-			if s:isSyntaxElem(lnum, 'break', 'javaScriptBranch') && ! s:isSyntaxElem(lnum, '\(case\|default\)', "javaScriptLabel")
-				return indent(lnum) - 2 * &sw
-			endif
-			return indent(lnum) - &sw
-		endif
-
-		" cases:
-		if s:isSyntaxElem(lnum, '\(case\|default\)', "javaScriptLabel") && s:isSyntaxElem(a:lnum, '\(case\|default\)', "javaScriptLabel")
-			return indent(lnum)
-		elseif s:isSyntaxElem(lnum, '\(case\|default\)', "javaScriptLabel")
-			return indent(lnum) + &sw
-		elseif s:isSyntaxElem(a:lnum, '\(case\|default\)', "javaScriptLabel")
-			return indent(lnum) - &sw
-		endif
-
-		if getline(a:lnum) =~ '\c</script>'
-			let scriptline = prevnonblank(search(js, 'bW'))
-			if scriptline > 0
-				return indent(scriptline)
-			endif
-		endif
-		return indent(lnum)
+	    return cindent(a:lnum)
 	endif
     endif
-
-    if getline(a:lnum) =~ '\c</\?body' || getline(a:lnum) =~ '\c</\?html' || getline(a:lnum) =~ '\c</\?head'
-		return 0
-	endif
-    if getline(lnum) =~ '\c</\?body' || getline(lnum) =~ '\c</\?html' || getline(lnum) =~ '\c</\?head'
-		return 0
-	endif
 
     if getline(lnum) =~ '\c</pre>'
 	" line before the current line a:lnum contains

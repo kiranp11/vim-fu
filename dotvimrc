@@ -8,6 +8,8 @@ set wildmenu
 set wildmode=list:longest,full
 set autowriteall
 
+autocmd FileType html let g:html_indent_strict=1
+
 set nocompatible
 
 " Shortcuts********************************************************************
