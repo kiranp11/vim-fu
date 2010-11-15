@@ -212,6 +212,7 @@ let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 
 " Command-T *******************************************************************
 let g:CommandTMatchWindowAtTop = 1
+set wildignore+=*~
 
 " autocomplpop ***************************************************************
 " complete option
