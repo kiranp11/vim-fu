@@ -1,4 +1,4 @@
-" Ruby Single Test
+" Ruby Single Spec
 "
 " Description: Plugin for running a single Ruby test under the cursor
 "              Supports TestUnit and Rspec
@@ -14,9 +14,9 @@
 "
 " To remap the command, to <leader>t for instance, add something
 " like this to your .vimrc:
-" nmap <silent> <leader>t <Plug>ExecuteRubyTest
+" nmap <silent> <leader>t <Plug>ExecuteRubySpec
 "
-" Ruby Single Test default to using make! with a bang.  To disable
+" Ruby Single Spec default to using make! with a bang.  To disable
 " this behavior drop this in your .vimrc:
 " let g:ruby_single_test_no_bang = 1
 "
@@ -29,7 +29,7 @@ endif
 let loaded_ruby_single_test = 1
 
 function! s:Run()
-  let s:make_cmd = "spec"
+  let s:make_cmd = "bundle exec rspec"
   echo "" . expand("%:p")
   if &filetype == "ruby"
     call s:ExecuteRubySpec()
@@ -53,7 +53,18 @@ endfunction
 function! s:ExecuteRubySpec()
   let old_make = &makeprg
   try
-    let &l:makeprg = s:make_cmd . " " . expand("%:p") . " --format specdoc -l " . line(".")
+    let &l:makeprg = s:make_cmd . " " . expand("%:p") . " --format documentation -l " . line(".")
+    exe 'make'
+    cwindow
+  finally
+    let &l:makeprg = old_make
+  endtry
+endfunction
+
+function! s:ExecuteRubySpecs()
+  let old_make = &makeprg
+  try
+    let &l:makeprg = s:make_cmd . " " . expand("%:p") . " --format documentation "
     exe 'make'
     cwindow
   finally
@@ -66,9 +77,10 @@ augroup RUBY_SINGLE_TEST
   au BufNewFile,BufRead *_test.rb let &l:makeprg = "ruby"
 augroup END
 
-nmap <unique> <script> <Plug>ExecuteRubyTest  <SID>Run
+nmap <unique> <script> <Plug>ExecuteRubySpec  <SID>Run
 nmap <SID>Run  :call <SID>Run()<CR>
 
-if !hasmapto('<Plug>ExecuteRubyTest')
-  nmap <silent> <leader>. <Plug>ExecuteRubyTest
+if !hasmapto('<Plug>ExecuteRubySpec')
+  nmap <silent> <leader>. <Plug>ExecuteRubySpec
+  nmap <silent> <leader>' <Plug>ExecuteRubySpecs
 endif
