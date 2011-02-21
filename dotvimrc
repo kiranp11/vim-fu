@@ -160,19 +160,19 @@ set vb t_vb= " Turn off the bell, this could be more annoying, but I'm not sure 
 "behave xterm
 "set selectmode=mouse
 
-" Cursor Movement *************************************************************
-" Make cursor move by visual lines instead of file lines (when wrapping)
-map <up> gk
-map k gk
-imap <up> <C-o>gk
-map <down> gj
-map j gj
-imap <down> <C-o>gj
-map E ge
+" " Cursor Movement *************************************************************
+" " Make cursor move by visual lines instead of file lines (when wrapping)
+" map <up> gk
+" map k gk
+" imap <up> <C-o>gk
+" map <down> gj
+" map j gj
+" imap <down> <C-o>gj
+" map E ge
 
 " Ruby stuff ******************************************************************
-"compiler ruby " Enable compiler support for ruby
-"map <F5> :!ruby %<CR>
+compiler ruby " Enable compiler support for ruby
+map <F5> :!ruby %<CR>
 
 " Omni Completion *************************************************************
 autocmd FileType html :set omnifunc=htmlcomplete#CompleteTags
@@ -214,7 +214,7 @@ let g:yankring_history_dir = expand('$HOME/.vim/tmp')
 let g:CommandTMatchWindowAtTop = 1
 set wildignore+=*~
 
-" autocomplpop ***************************************************************
+" autocomplpop ****************************************************************
 " complete option
 "set complete=.,w,b,u,t,k
 "let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'

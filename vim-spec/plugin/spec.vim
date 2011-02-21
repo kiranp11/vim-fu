@@ -23,37 +23,15 @@
 "
 " TODO: add Shoulda support
 
-if exists("loaded_ruby_single_test")
+if exists("loaded_ruby_single_spec")
   finish
 endif
-let loaded_ruby_single_test = 1
-
-function! s:Run()
-  let s:make_cmd = "bundle exec rspec"
-  echo "" . expand("%:p")
-  if &filetype == "ruby"
-    call s:ExecuteRubySpec()
-  elseif &makeprg =~ "ruby" " Test::Unit
-    call s:ExecuteRubyUnitTest()
-  else
-    echo "Not a test file" . &filetype . expand("%:p")
-  endif
-endfunction
-
-function! s:ExecuteRubyUnitTest()
-  let s:line_no = search('^\s*def\s*test_', 'bcnW')
-  if s:line_no
-    let s:old_make = &makeprg
-    exec s:make_cmd . " \"%\" -n \"" . split(getline(s:line_no))[1] . "\""
-  else
-    echo "Can't find a test!"
-  endif
-endfunction
+let loaded_ruby_single_spec = 1
 
 function! s:ExecuteRubySpec()
   let old_make = &makeprg
   try
-    let &l:makeprg = s:make_cmd . " " . expand("%:p") . " --format documentation -l " . line(".")
+    let &l:makeprg = "bundle exec rspec " . expand("%:p") . " --format documentation -l " . line(".")
     exe 'make'
     cwindow
   finally
@@ -61,10 +39,10 @@ function! s:ExecuteRubySpec()
   endtry
 endfunction
 
-function! s:ExecuteRubySpecs()
+function! s:ExecuteAllRubySpecs()
   let old_make = &makeprg
   try
-    let &l:makeprg = s:make_cmd . " " . expand("%:p") . " --format documentation "
+    let &l:makeprg = "bundle exec rspec " . expand("%:p") . " --format documentation "
     exe 'make'
     cwindow
   finally
@@ -77,10 +55,12 @@ augroup RUBY_SINGLE_TEST
   au BufNewFile,BufRead *_test.rb let &l:makeprg = "ruby"
 augroup END
 
-nmap <unique> <script> <Plug>ExecuteRubySpec  <SID>Run
-nmap <SID>Run  :call <SID>Run()<CR>
+nmap <unique> <script> <Plug>ExecuteRubySpec <SID>ExecuteRubySpec
+nmap <unique> <script> <Plug>ExecuteAllRubySpecs <SID>ExecuteAllRubySpecs
+nmap <SID>ExecuteRubySpec  :call <SID>ExecuteRubySpec()<CR>
+nmap <SID>ExecuteAllRubySpecs  :call <SID>ExecuteAllRubySpecs()<CR>
 
 if !hasmapto('<Plug>ExecuteRubySpec')
   nmap <silent> <leader>. <Plug>ExecuteRubySpec
-  nmap <silent> <leader>' <Plug>ExecuteRubySpecs
+  nmap <silent> <leader>' <Plug>ExecuteAllRubySpecs
 endif
