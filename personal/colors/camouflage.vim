@@ -19,7 +19,7 @@ endif
 " Background and menu colors
 hi Cursor           guifg=NONE guibg=#FFFFFF gui=none
 hi Normal           guifg=#D5E285 guibg=#070100 gui=none
-hi NonText          guifg=#D5E285 guibg=#070100 gui=none
+hi NonText          guifg=#4A4A59 gui=none
 hi LineNr           guifg=#7E8841 guibg=#201A19 gui=none
 hi StatusLine       guifg=#00D2D2 guibg=#38290B gui=italic
 hi StatusLineNC     guifg=#00D2D2 guibg=#2F2928 gui=none
@@ -27,7 +27,7 @@ hi VertSplit        guifg=#00D2D2 guibg=#201A19 gui=none
 hi Folded           guifg=#00D2D2 guibg=#070100 gui=none
 hi Title            guifg=#FFCA39 guibg=NONE    gui=bold
 hi Visual           guibg=#313131 gui=none
-hi SpecialKey       guifg=#FFF1BC guibg=#16100F gui=none
+hi SpecialKey       guifg=#4A4A59 gui=none
 hi Search           guifg=NONE    guibg=NONE    gui=underline
 hi Underline                                    gui=none
 
