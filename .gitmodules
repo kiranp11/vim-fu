@@ -64,3 +64,6 @@
 [submodule "vim-ruby-refactoring"]
 	path = vim-ruby-refactoring
 	url = git://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "gundo.vim"]
+	path = gundo.vim
+	url = https://github.com/sjl/gundo.vim.git
