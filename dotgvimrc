@@ -30,7 +30,7 @@ set anti " Antialias font
 
 " Default size of window
 set columns=177
-set lines=56
+set lines=66
 
 " Tab headings
 set gtl=%t gtt=%F
