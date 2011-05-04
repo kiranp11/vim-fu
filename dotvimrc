@@ -288,3 +288,9 @@ nnoremap <F5> :GundoToggle<CR>
 "Save on losing focus
 
 au FocusLost * :wa
+
+" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nmap <silent> <leader>d "_d
+vmap <silent> <leader>d "_d
+
