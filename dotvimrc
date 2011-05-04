@@ -96,6 +96,7 @@ set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
 nmap <silent> <leader>a :Ack <cword><CR>
+nmap <silent> <Esc><Esc> :noh<cr>
 
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
