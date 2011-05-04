@@ -73,3 +73,6 @@
 [submodule "vim-repeat"]
 	path = vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
+[submodule "vim-space"]
+	path = vim-space
+	url = https://github.com/spiiph/vim-space.git
