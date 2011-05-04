@@ -212,6 +212,9 @@ nmap <silent> <unique> <leader>- :Rake -<CR>
 
 " yankring*********************************************************************
 let g:yankring_history_dir = expand('$HOME/.vim/tmp')
+nnoremap <silent> <F3> :YRShow<cr>
+inoremap <silent> <F3> <ESC>:YRShow<cr>
+
 
 " Command-T *******************************************************************
 let g:CommandTMatchWindowAtTop = 1
