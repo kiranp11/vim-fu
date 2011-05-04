@@ -72,7 +72,7 @@ endif
 " Indenting *******************************************************************
 set ai " Automatically set the indent of a new line (local to buffer)
 set si " smartindent  (local to buffer)
- 
+
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
@@ -81,7 +81,7 @@ set go-=L
 " Windows *********************************************************************
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
- 
+
 "Vertical split then hop to new buffer
 :noremap <leader>v :vsp^M^W^W<cr>
 :noremap <leader>h :split^M^W^W<cr>
@@ -95,6 +95,7 @@ set hlsearch " highlight search
 set incsearch " incremental search, search as you type
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching lowercase
+nmap <silent> <leader>a :Ack <cword><CR>
 
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
@@ -232,11 +233,13 @@ let g:AutoComplPop_BehaviorKeywordLength = 2
 if has("mac")
   nmap <silent> <D-Left> <C-o>
   nmap <silent> <D-Right> <C-i>
+  "Override default ctags that comes with mac osx
+  let Tlist_Ctags_Cmd='/opt/local/bin/ctags' 
 endif
 
 " Windows *********************************************************************
 "if has("gui_win32")
-  ""
+""
 "endif
 
 " -----------------------------------------------------------------------------
