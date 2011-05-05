@@ -26,7 +26,7 @@ hi StatusLineNC     guifg=#00D2D2 guibg=#2F2928 gui=none
 hi VertSplit        guifg=#00D2D2 guibg=#201A19 gui=none
 hi Folded           guifg=#00D2D2 guibg=#070100 gui=none
 hi Title            guifg=#FFCA39 guibg=NONE    gui=bold
-hi Visual           guibg=#313131 gui=none
+hi Visual           guibg=#313F31 gui=none
 hi SpecialKey       guifg=#4A4A59 gui=none
 hi Search           guifg=NONE    guibg=NONE    gui=underline
 hi Underline                                    gui=none
