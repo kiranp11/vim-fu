@@ -76,3 +76,6 @@
 [submodule "vim-space"]
 	path = vim-space
 	url = https://github.com/spiiph/vim-space.git
+[submodule "vim-colors-solarized"]
+	path = vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

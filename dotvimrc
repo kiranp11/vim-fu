@@ -101,7 +101,8 @@ nmap <silent> <Esc><Esc> :noh<cr>
 " Colors **********************************************************************
 "set t_Co=256 " 256 colors
 syntax on " syntax highlighting
-colorscheme camouflage
+set background=dark
+colorscheme solarized
 
 " Status Line *****************************************************************
 set showcmd
