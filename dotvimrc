@@ -212,8 +212,10 @@ inoremap <silent> <F3> <ESC>:YRShow<cr>
 
 
 " Command-T *******************************************************************
+" Command-T *******************************************************************
 let g:CommandTMatchWindowAtTop = 1
-set wildignore+=*~
+let g:CommandTMaxHeight = 20
+set wildignore+=*~,tmp/**,*.svg,*.ttf,*.gif,*.jpg,*.jpeg,*.png,*.eot,*.woff,*.gz 
 
 " autocomplpop ****************************************************************
 " complete option
