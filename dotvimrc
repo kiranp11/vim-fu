@@ -8,6 +8,8 @@ let mapleader = ","
 set wildmenu
 set wildmode=list:longest,full
 set autowriteall
+set exrc			" enable per-directory .vimrc files
+set secure			" disable unsafe commands in local .vimrc files
 
 autocmd FileType html let g:html_indent_strict=1
 
