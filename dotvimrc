@@ -295,3 +295,5 @@ au FocusLost * :wa
 nmap <silent> <leader>d "_d
 vmap <silent> <leader>d "_d
 
+"Custom File Types 
+au BufRead,BufNewFile *spec.js.coffee set filetype=jasmine.coffee

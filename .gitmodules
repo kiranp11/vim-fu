@@ -91,3 +91,6 @@
 [submodule "Tagbar"]
 	path = Tagbar
 	url = https://github.com/vim-scripts/Tagbar.git
+[submodule "jasmine.vim"]
+	path = jasmine.vim
+	url = https://github.com/claco/jasmine.vim.git
