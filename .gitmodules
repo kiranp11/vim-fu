@@ -94,3 +94,6 @@
 [submodule "jasmine.vim"]
 	path = jasmine.vim
 	url = https://github.com/claco/jasmine.vim.git
+[submodule "vim-indent-guides"]
+	path = vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
