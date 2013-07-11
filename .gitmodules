@@ -100,6 +100,3 @@
 [submodule "vim-less"]
 	path = vim-less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "VimClojure"]
-	path = VimClojure
-	url = https://github.com/vim-scripts/VimClojure.git
